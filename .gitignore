@@ -1,2 +1,4 @@
 venv
+*.swp
 *.xlsx
+xlpt/__pycache__

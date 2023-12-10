@@ -1,5 +1,5 @@
 from openpyxl import Workbook
-from openpyxl.styles import PatternFill, Border, Side, Alignment
+from openpyxl.styles import PatternFill, Border, Side, Alignment, Font
 
 from styles import *
 
@@ -22,6 +22,7 @@ def gen_template(headers, header_line=1, header_fill_color=HEADER_FILL_COLOR, fi
       if 'text' in data.keys():
         for cell, text in data['text'].items():
           ws[cell] = text
+          ws[cell].font = Font(size=data['font'])
       for row in ws[data['range']]:
         for cell in row:
           pass
@@ -63,29 +64,29 @@ if __name__ == '__main__':
 
   metadata = {
     'section1': {
-      'range': 'A1:C3', 
+      'range': 'A1:B3', 
       'image': 'img/logo.png',
       'borders': 'outer' # outer/all
     },
     'section2': {
-      'range': 'D1:E1',
-      'text': {'D1': 'TITLE'},
+      'range': 'C1:D1',
+      'text': {'C1': 'TITLE'},
       'font': 24
     },
     'section3': {
-      'range': 'F1:G1',
-      'text': {'F1': 'Subtitle'},
+      'range': 'E1:F1',
+      'text': {'E1': 'Subtitle'},
       'font': 12
     },
     'section4': {
-      'range': 'D2:E3',
-      'text': {'D2': 'author', 'D3': 'version'},
+      'range': 'C2:D3',
+      'text': {'C2': 'author', 'C3': 'version'},
       'font': 10,
       'borders': 'outer'
     },
     'section5': {
-      'range': 'F2:G3',
-      'text': {'F2': '<author name>', 'F3': '<version number>'},
+      'range': 'E2:F3',
+      'text': {'E2': '<author name>', 'E3': '<version number>'},
       'font': 10
     }
   }

@@ -6,8 +6,7 @@ Describe your templates as python code for reproducibility and auditability.
 
 ### Usage
 
-TBD
-
+python xlpt.py build [OPTIONS]
 
 ### TODO
 

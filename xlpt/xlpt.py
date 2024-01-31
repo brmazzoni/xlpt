@@ -103,8 +103,7 @@ def build(headers, header_line=1, header_fill_color=HEADER_FILL_COLOR, filename=
   # Generate headers
   for col, header in headers.items():
     cell = col + str(header_line)
-    ws[cell] = header['text']
-    ws[cell].fill = header_fill
+    ws[cell] = header['text'] ws[cell].fill = header_fill
     width = header['width'] if 'width' in header.keys() else CW_NORMAL
     ws.column_dimensions[col].width = width
   
